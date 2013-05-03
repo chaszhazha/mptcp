@@ -8,8 +8,8 @@ class TestTopo(Topo):
         leftSwitch = self.addSwitch('s1')
         rightSwitch = self.addSwitch('s2')
 
-        self.addLink(leftHost,leftSwitch)
-        self.addLink(leftSwitch, rightSwitch)
-        self.addLink(rightHost, rightSwitch)
+        self.addLink(leftHost,leftSwitch, bw=100)
+        self.addLink(leftSwitch, rightSwitch, bw=100)
+        self.addLink(rightHost, rightSwitch, bw=100)
 
 topos = {'testTopo': (lambda :TestTopo() )}
