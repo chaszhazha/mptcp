@@ -8,8 +8,8 @@ class TestTopo(Topo):
         Topo.__init__(self)
         leftHost = self.addHost('h1')
         rightHost = self.addHost('h2')
-        leftSwitch = self.addSwitch('h3')
-        rightSwitch = self.addSwitch('h4')
+        leftSwitch = self.addHost('h3')
+        rightSwitch = self.addHost('h4')
 
         link1 = self.addLink(leftHost,leftSwitch)
         link2 = self.addLink(leftSwitch, rightSwitch)
