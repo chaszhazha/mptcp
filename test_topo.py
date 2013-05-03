@@ -24,9 +24,9 @@ if __name__ == '__main__':
     net = Mininet(topo = TestTopo())
     net.start()
     h3 = net.getNodeByName('h3')
-    h3.cmd('sysctl -w net.ipv4.ip_forward=1')
+    print h3.cmd('sysctl -w net.ipv4.ip_forward=1')
     h4 = net.getNodeByName('h4')
-    h4.cmd('sysctl -w net.ipv4.ip_forward=1')
+    print h4.cmd('sysctl -w net.ipv4.ip_forward=1')
     print h3.cmd('ping -c 1 ', h4.IP())
     sleep(5)
 
