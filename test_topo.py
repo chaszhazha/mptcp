@@ -11,8 +11,9 @@ class TestTopo(Topo):
         leftSwitch = self.addSwitch('h3')
         rightSwitch = self.addSwitch('h4')
 
-        self.addLink(leftHost,leftSwitch, bw=100)
-        self.addLink(leftSwitch, rightSwitch, bw=100)
-        self.addLink(rightHost, rightSwitch, bw=100)
+        link1 = self.addLink(leftHost,leftSwitch)
+        link2 = self.addLink(leftSwitch, rightSwitch)
+        link3 = self.addLink(rightHost, rightSwitch)
+        print dir(link1)
 
 topos = {'testTopo': (lambda :TestTopo() )}
