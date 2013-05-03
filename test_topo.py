@@ -12,8 +12,6 @@ class TestTopo(Topo):
         leftSwitch = self.addHost('h3')
         rightSwitch = self.addHost('h4')
         
-        leftSwitch.cmd('sysctl -w net.ipv4.ip_forward=1')
-        rightSwitch.cmd('sysctl -w net.ipv4.ip_forward=1')
 
         link1 = self.addLink(leftHost,leftSwitch)
         link2 = self.addLink(leftSwitch, rightSwitch)
@@ -25,7 +23,10 @@ topos = {'testTopo': (lambda :TestTopo() )}
 if __name__ == '__main__':
     net = Mininet(topo = TestTopo())
     net.start()
-
+    h3 = net.getNodeByName('h3')
+    h3.cmd('sysctl -w net.ipv4.ip_forward=1')
+    h4 = net.getNodeByName('h4')
+    h4.cmd('sysctl -w net.ipv4.ip_forward=1')
     sleep(5)
 
     net.stop()
