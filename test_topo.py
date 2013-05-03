@@ -17,3 +17,11 @@ class TestTopo(Topo):
         print dir(link1)
 
 topos = {'testTopo': (lambda :TestTopo() )}
+
+if __name__ == '__main__':
+    net = Mininet(topo = TestTopo())
+    net.start()
+
+    sleep(5)
+
+    net.stop()
