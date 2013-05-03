@@ -11,6 +11,9 @@ class TestTopo(Topo):
         rightHost = self.addHost('h2')
         leftSwitch = self.addHost('h3')
         rightSwitch = self.addHost('h4')
+        
+        leftSwitch.cmd('sysctl -w net.ipv4.ip_forward=1')
+        rightSwitch.cmd('sysctl -w net.ipv4.ip_forward=1')
 
         link1 = self.addLink(leftHost,leftSwitch)
         link2 = self.addLink(leftSwitch, rightSwitch)
