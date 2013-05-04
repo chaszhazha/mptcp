@@ -67,7 +67,7 @@ for f in args.files:
 #avgThroughput = (20, 35, 30, 35, 27, 5, 6, 7)
 
 # set up plot
-m.rc('figure', figsize=(16, 6))
+m.rc('figure', figsize=(20, 6))
 fig = plt.figure()
 title = 'Fat Tree (k=%s), %s workload' % (args.k, args.workload)
 # plot rank of flow
@@ -75,7 +75,7 @@ axPlot = fig.add_subplot(1, 1, 1)
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$MPTCP$")
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$x$")
 colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#00ffff', '#0000ff', '#4B0082',
-          '#8F00FF']
+          '#8F00FF' , '#aaffbb', '#ee8822']
 for flow in sorted(link_util.keys()):
     xaxis = range(len(link_util[flow]))
     if flow == '1':

@@ -46,13 +46,13 @@ for f in args.files:
 x_labels = []
 y_plot = defaultdict(list)
 for topo in sorted(utilization.keys()):
-  if len(utilization[topo].keys()) == 8:
+  if len(utilization[topo].keys()) == 10:
     x_labels.append("k = %d" % topo)
     for f in sorted(utilization[topo].keys()):
       y_plot[f].append(utilization[topo][f])
 
 # set up plot
-m.rc('figure', figsize=(8, 6))
+m.rc('figure', figsize=(10, 6))
 fig = plt.figure()
 title = 'CPU Utilization, %s workload' % args.workload
 # plot rank of flow
@@ -62,7 +62,7 @@ width = 0.1
 xoffset = (1 - width*len(y_plot.keys())) / 2
 axHist = fig.add_subplot(1, 1, 1)
 
-colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#00ffff', '#0000ff', '#4B0082', '#8F00FF']
+colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#00ffff', '#0000ff', '#4B0082', '#8F00FF' , '#aaffbb', '#ee8822']
 for flows in sorted(y_plot.keys()):
   axHist.bar(xaxis + xoffset + (flows-1) * width, y_plot[flows], width, 
               color= colors[flows-1], #'k' if flows % 2 == 0 else 'b', 
@@ -75,7 +75,7 @@ axHist.set_title( title )
 axHist.set_xticks(xaxis + width*len(y_plot.keys())/2 + xoffset)
 axHist.set_xticklabels( x_labels )
 
-axHist.legend(loc='upper right', bbox_to_anchor = (1.5, 0))
+axHist.legend(loc='upper left')
 
 if args.out:
     print 'saving to', args.out

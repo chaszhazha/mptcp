@@ -45,7 +45,7 @@ def parse_ping(fname):
             break
     return ret
 
-m.rc('figure', figsize=(8, 6))
+m.rc('figure', figsize=(10, 6))
 fig = plt.figure()
 axHist = fig.add_subplot(111)
 
@@ -70,8 +70,8 @@ for flow in pings:
     avgPings.append(avg(pings[flow]))
     stdPings.append(stdev(pings[flow]))
 
-N = 8
-labels = ('TCP', '2', '3', '4', '5', '6', '7', '8')
+N = 10
+labels = ('TCP', '2', '3', '4', '5', '6', '7', '8' , '9' , '10')
 xaxis = np.arange(N)  # the x locations for the groups
 width = 0.5
 xoffset = (1 - width) / 2
