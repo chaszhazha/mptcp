@@ -75,7 +75,7 @@ axHist.set_title( title )
 axHist.set_xticks(xaxis + width*len(y_plot.keys())/2 + xoffset)
 axHist.set_xticklabels( x_labels )
 
-axHist.legend(loc='upper left')
+axHist.legend(loc='upper right', bbox_to_anchor = (1.5, 0))
 
 if args.out:
     print 'saving to', args.out
