@@ -138,7 +138,7 @@ def main():
 
     get_max_throughput(net, top_dir)
 
-    for nflows in range(1, 9):
+    for nflows in range(1, 11):
         cwd = os.path.join(top_dir, "flows%d" % nflows)
 
         if not os.path.exists(cwd):
