@@ -53,9 +53,9 @@ iperf_data_columns = 9
 for f in args.files:
   #print f
 
-  m = re.search('.*flows(\d+).*', f)
+  match = re.search('.*flows(\d+).*', f)
   flow = 0
-  if not isinstance(m, None.__class__):
+  if not isinstance(match, None.__class__):
       flow = int(m.group(1))
   #flow = f[f.find('flows') + len('flows')]
   output = []
