@@ -49,11 +49,11 @@ def constant_factory(value):
 link_util = defaultdict(list)
 for f in args.files:
   print f
-  m = re.search('.*flows(\d+).*', f)
-  if isinstance(m, None.__class__):
+  match = re.search('.*flows(\d+).*', f)
+  if isinstance(match, None.__class__):
       continue
   #flow = f[f.find('flows') + len('flows')]
-  flow = int(m.group(1))
+  flow = int(match.group(1))
   output = []
   for line in open(f).xreadlines():
     link_util[flow].append(float(line))
