@@ -80,7 +80,9 @@ for f in args.files:
     #print "         ERROR!!!!!!!!!!!!!!!!!!!"  
     pass
 
-#print throughput 
+print 'through put: ', throughput
+print 'max through put', max_throughput 
+
 
 avgThroughput = []
 tcp_points = []
