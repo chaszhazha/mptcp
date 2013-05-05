@@ -123,9 +123,6 @@ axPlot = fig.add_subplot(1, 2, 2)
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$MPTCP$")
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$x$")
 
-print mptcp10_points
-print mptcp_points
-print tcp_points
 xaxis = range(len(mptcp10_points))
 axPlot.plot(xaxis, mptcp10_points, lw=2, label="MPTCP, 10 subflows")
 xaxis = range(len(mptcp_points))
