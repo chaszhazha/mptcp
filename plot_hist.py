@@ -54,8 +54,6 @@ for f in args.files:
   #print f
 
   m = re.search('.*flows(\d+).*', f)
-  if isinstance(m, None.__class__):
-      continue
   #flow = f[f.find('flows') + len('flows')]
   flow = int(m.group(1))
   output = []
