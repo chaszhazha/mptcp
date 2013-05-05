@@ -58,8 +58,9 @@ for f in args.files:
       continue
 
   flow = f[f.find('flows') + len('flows')]
+  print flow
   val = parse_ping(f)
-  #print val
+  print val
   if len(val) == 0:
       print f, 'val is empty'
       continue
