@@ -80,12 +80,14 @@ axPlot = fig.add_subplot(1, 1, 1)
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$x$")
 colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#00ffff', '#0000ff', '#4B0082',
           '#8F00FF' , '#aaffbb', '#ee8822']
+
+print sorted(link_util.keys())
 for flow in sorted(link_util.keys()):
     xaxis = range(len(link_util[flow]))
-    if flow == '1':
+    if flow == 1:
         label = "TCP"
     else:
-        label = "MPTCP, %s subflows" % flow
+        label = "MPTCP, %d subflows" % flow
     axPlot.plot(xaxis, link_util[flow], lw=2, label=label, color=colors[int(flow) - 1])
 #axPlot.grid(True)
 axPlot.legend(loc='lower right')
