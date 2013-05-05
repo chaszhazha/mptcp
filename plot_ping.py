@@ -63,7 +63,7 @@ for f in args.files:
   avgVal = avg([x[1] for x in val])
   pings[flow].append(avgVal)
 
-print len(pings)
+print pings.keys()
 
 avgPings, stdPings = [], []
 for flow in pings:
