@@ -56,7 +56,7 @@ for f in args.files:
   match = re.search('.*flows(\d+).*', f)
   flow = 0
   if not isinstance(match, None.__class__):
-      flow = int(m.group(1))
+      flow = int(match.group(1))
   #flow = f[f.find('flows') + len('flows')]
   output = []
   for line in open(f).xreadlines():
