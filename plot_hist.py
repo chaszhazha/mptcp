@@ -114,19 +114,22 @@ for i in sorted(throughput.keys()):
 #avgThroughput = (20, 35, 30, 35, 27, 5, 6, 7)
 
 # set up plot
-m.rc('figure', figsize=(20, 6))
+m.rc('figure', figsize=(16, 6))
 fig = plt.figure()
 title = 'Fat Tree (k=%s), %s workload' % (args.k, args.workload)
 # plot rank of flow
 axPlot = fig.add_subplot(1, 2, 2)
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$MPTCP$")
 #axPlot.plot(first(cwnd_time), second(cwnd_time), lw=2, label="$x$")
+
+print mptcp10_points
+xaxis = range(len(mptcp10_points))
+axPlot.plot(xaxis, mptcp10_points, lw=2, label="MPTCP, 10 subflows")
 xaxis = range(len(mptcp_points))
 axPlot.plot(xaxis, mptcp_points, lw=2, label="MPTCP, 8 subflows")
 xaxis = range(len(tcp_points))
 axPlot.plot(xaxis, tcp_points, lw=2, label="TCP")
-xaxis = range(len(mptcp10_points))
-axPlot.plot(xaxis, mptcp10_points, lw=2, label="MPTCP, 10 subflows")
+
 #axPlot.grid(True)
 axPlot.legend(loc='lower right')
 axPlot.set_xlabel("Rank of Flow")
