@@ -55,7 +55,7 @@ pings = defaultdict(list)
 for f in args.files:
   #print f
   if not f.find('ping'):
-      print 'no ping file found'
+      #print 'no ping file found'
       continue
   m = re.search('.*flows(\d+).*', f)
   if isinstance(m, None.__class__):
@@ -66,7 +66,7 @@ for f in args.files:
   val = parse_ping(f)
   #print val
   if len(val) == 0:
-      print f, 'val is empty'
+      #print f, 'val is empty'
       continue
   avgVal = avg([x[1] for x in val])
   pings[flow].append(avgVal)
