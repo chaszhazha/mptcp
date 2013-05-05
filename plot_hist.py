@@ -87,11 +87,13 @@ tcp_points = []
 mptcp_points = []
 for i in sorted(throughput.keys()):
   #print i 
+  if max_throughput == 0:
+      print 'max_throughput is 0 for flows %s', i
   vals = [ 100.0 * x / max_throughput  for x in throughput[i] ] 
   avgThroughput.append(avg(vals))
   if i == '1':
     tcp_points = sorted(vals)
-  if i == '8':
+  if i == '10':
     mptcp_points = sorted(vals)
 
 #print avgThroughput
