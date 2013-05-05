@@ -69,7 +69,7 @@ for f in args.files:
     if float(interval[0]) == 0.0 or float(interval[1]) > args.time:
       continue
     output.append(float(data[-1]))
-
+  print f
   if len(output) > 0:
     val = avg(output)
     if f.find('client') >= 0:
@@ -81,8 +81,8 @@ for f in args.files:
     print "         ERROR!!!!!!!!!!!!!!!!!!!"  
     pass
 
-print 'through put: ', throughput
-print 'max through put', max_throughput 
+#print 'through put: ', throughput
+#print 'max through put', max_throughput 
 
 
 avgThroughput = []
