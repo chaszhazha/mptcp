@@ -59,8 +59,9 @@ for f in args.files:
 
   flow = f[f.find('flows') + len('flows')]
   val = parse_ping(f)
-  print val
+  #print val
   if len(val) == 0:
+      print 'val is empty'
       continue
   avgVal = avg([x[1] for x in val])
   pings[flow].append(avgVal)
