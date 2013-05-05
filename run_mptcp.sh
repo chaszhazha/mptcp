@@ -12,8 +12,8 @@ ctrlc() {
 trap ctrlc SIGINT
 
 iperf=~/iperf-patched/src/iperf
-time=40
-bw=10
+time=60
+bw=1
 queue_size=100
 topo_to_run=6
 wl_to_run="one_to_one"
