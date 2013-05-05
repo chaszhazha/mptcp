@@ -54,8 +54,10 @@ for f in args.files:
   #print f
 
   m = re.search('.*flows(\d+).*', f)
+  flow = 0
+  if !isinstance(m, None.__class__):
+      flow = int(m.group(1))
   #flow = f[f.find('flows') + len('flows')]
-  flow = int(m.group(1))
   output = []
   for line in open(f).xreadlines():
     data = line.rstrip().split(',')
@@ -73,7 +75,7 @@ for f in args.files:
     if f.find('client') >= 0:
       throughput[flow].append(float(val))
     else:
-      print f
+      #print f
       max_throughput = float(val)
   else:
     print "         ERROR!!!!!!!!!!!!!!!!!!!"  
