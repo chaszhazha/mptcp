@@ -81,10 +81,7 @@ for f in args.files:
     print "         ERROR!!!!!!!!!!!!!!!!!!!"  
     pass
 
-#print 'through put: ', throughput
-#print 'max through put', max_throughput 
-
-
+print throughput.keys()
 avgThroughput = []
 tcp_points = []
 mptcp_points = []
