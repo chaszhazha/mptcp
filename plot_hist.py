@@ -93,11 +93,11 @@ for i in sorted(throughput.keys()):
   vals = [ 100.0 * x / max_throughput  for x in throughput[i] ] 
   avgThroughput.append(avg(vals))
   print vals
-  if i == '1':
+  if i == 1:
     tcp_points = sorted(vals)
-  if i == '8':
+  if i == 8:
     mptcp_points = sorted(vals)
-  if i == '10':
+  if i == 10:
     mptcp10_points = sorted(vals)
 
 #print avgThroughput
