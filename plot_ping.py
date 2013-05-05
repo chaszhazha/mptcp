@@ -4,6 +4,7 @@ Plot ping RTTs over time
 from util.helper import *
 from collections import defaultdict
 import numpy as np
+import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--files', '-f',
@@ -56,9 +57,12 @@ for f in args.files:
   if not f.find('ping'):
       print 'no ping file found'
       continue
-
-  flow = f[f.find('flows') + len('flows')]
-  print flow
+  m = re.search('.*flows(\d+).*', f)
+  if isinstance(m, None.__class__):
+      continue
+  #flow = f[f.find('flows') + len('flows')]
+  flow = int(m.group(1))
+  #print flow
   val = parse_ping(f)
   print val
   if len(val) == 0:

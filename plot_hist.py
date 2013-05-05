@@ -2,6 +2,7 @@ from util.helper import *
 from collections import defaultdict
 import argparse
 import numpy as np
+import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', dest="files", nargs='+', required=True)
@@ -52,7 +53,11 @@ iperf_data_columns = 9
 for f in args.files:
   #print f
 
-  flow = f[f.find('flows') + len('flows')]
+  m = re.search('.*flows(\d+).*', f)
+  if isinstance(m, None.__class__):
+      continue
+  #flow = f[f.find('flows') + len('flows')]
+  flow = int(m.group(1))
   output = []
   for line in open(f).xreadlines():
     data = line.rstrip().split(',')
