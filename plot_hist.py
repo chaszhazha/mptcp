@@ -81,7 +81,7 @@ for f in args.files:
     print "         ERROR!!!!!!!!!!!!!!!!!!!"  
     pass
 
-print throughput.keys()
+#print throughput.keys()
 avgThroughput = []
 tcp_points = []
 mptcp_points = []
@@ -131,7 +131,7 @@ axPlot.set_title( title )
 
 # plot histogram
 N = 8
-labels = ('TCP', '2', '3', '4', '5', '6', '7', '8')
+labels = ('TCP', '2', '3', '4', '5', '6', '7', '8' , '9' , '10')
 xaxis = np.arange(N)  # the x locations for the groups
 width = 0.5 
 xoffset = (1 - width) / 2
