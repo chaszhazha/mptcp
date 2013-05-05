@@ -53,7 +53,7 @@ axHist = fig.add_subplot(111)
 pings = defaultdict(list)
 
 for f in args.files:
-  print f
+  #print f
   if not f.find('ping'):
       print 'no ping file found'
       continue
@@ -64,14 +64,14 @@ for f in args.files:
   flow = int(m.group(1))
   #print flow
   val = parse_ping(f)
-  print val
+  #print val
   if len(val) == 0:
       print f, 'val is empty'
       continue
   avgVal = avg([x[1] for x in val])
   pings[flow].append(avgVal)
 
-print pings.keys()
+#print pings.keys()
 
 avgPings, stdPings = [], []
 for flow in pings:
