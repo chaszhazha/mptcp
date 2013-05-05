@@ -69,7 +69,7 @@ for f in args.files:
     if float(interval[0]) == 0.0 or float(interval[1]) > args.time:
       continue
     output.append(float(data[-1]))
-  print f
+  #print f
   if len(output) > 0:
     val = avg(output)
     if f.find('client') >= 0:
@@ -89,10 +89,11 @@ mptcp10_points = []
 for i in sorted(throughput.keys()):
   #print i 
   if max_throughput == 0:
-      print 'max_throughput is 0 for flows %s', i
+      pass
+      #print 'max_throughput is 0 for flows %s', i
   vals = [ 100.0 * x / max_throughput  for x in throughput[i] ] 
   avgThroughput.append(avg(vals))
-  print vals
+  #print vals
   if i == 1:
     tcp_points = sorted(vals)
   if i == 8:
