@@ -51,7 +51,7 @@ throughput = defaultdict(list)
 max_throughput = 0
 iperf_data_columns = 9
 for f in args.files:
-  #print f
+  print f
 
   m = re.search('.*flows(\d+).*', f)
   if isinstance(m, None.__class__):
@@ -77,7 +77,7 @@ for f in args.files:
     else:
       max_throughput = float(val)
   else:
-    #print "         ERROR!!!!!!!!!!!!!!!!!!!"  
+    print "         ERROR!!!!!!!!!!!!!!!!!!!"  
     pass
 
 print 'through put: ', throughput
