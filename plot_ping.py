@@ -83,7 +83,7 @@ labels = ('TCP', '2', '3', '4', '5', '6', '7', '8' , '9' , '10')
 xaxis = np.arange(N)  # the x locations for the groups
 width = 0.5
 xoffset = (1 - width) / 2
-#axHist.bar(xaxis + xoffset, avgPings, width, color='k', yerr=stdPings)  
+axHist.bar(xaxis + xoffset, avgPings, width, color='k', yerr=stdPings)  
 axHist.set_xlabel("No. of MPTCP Subflows")
 axHist.set_ylabel("Average RTT (in ms)")
 axHist.set_title("Fat Tree (k=%s), %s workload" % (args.k, args.workload))
