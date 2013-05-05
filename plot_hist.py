@@ -130,7 +130,7 @@ axPlot.set_ylim(0, 100)
 axPlot.set_title( title )
 
 # plot histogram
-N = 8
+N = 10
 labels = ('TCP', '2', '3', '4', '5', '6', '7', '8' , '9' , '10')
 xaxis = np.arange(N)  # the x locations for the groups
 width = 0.5 
