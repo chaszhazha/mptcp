@@ -54,10 +54,12 @@ pings = defaultdict(list)
 for f in args.files:
   #print f
   if not f.find('ping'):
+      print 'no ping file found'
       continue
 
   flow = f[f.find('flows') + len('flows')]
   val = parse_ping(f)
+  print val
   if len(val) == 0:
       continue
   avgVal = avg([x[1] for x in val])
