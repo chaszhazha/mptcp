@@ -85,6 +85,7 @@ for f in args.files:
 avgThroughput = []
 tcp_points = []
 mptcp_points = []
+mptcp10_points = []
 for i in sorted(throughput.keys()):
   #print i 
   if max_throughput == 0:
@@ -93,8 +94,10 @@ for i in sorted(throughput.keys()):
   avgThroughput.append(avg(vals))
   if i == '1':
     tcp_points = sorted(vals)
-  if i == '10':
+  if i == '8':
     mptcp_points = sorted(vals)
+  if i == '10':
+    mptcp10_points = sorted(vals)
 
 #print avgThroughput
 #print max_throughput
@@ -111,7 +114,7 @@ for i in sorted(throughput.keys()):
 #avgThroughput = (20, 35, 30, 35, 27, 5, 6, 7)
 
 # set up plot
-m.rc('figure', figsize=(16, 6))
+m.rc('figure', figsize=(20, 6))
 fig = plt.figure()
 title = 'Fat Tree (k=%s), %s workload' % (args.k, args.workload)
 # plot rank of flow
@@ -122,6 +125,8 @@ xaxis = range(len(mptcp_points))
 axPlot.plot(xaxis, mptcp_points, lw=2, label="MPTCP, 8 subflows")
 xaxis = range(len(tcp_points))
 axPlot.plot(xaxis, tcp_points, lw=2, label="TCP")
+xaxis = range(len(mptcp10_points))
+axPlot.plot(xaxis, mptcp10_points, lw=2, label="MPTCP, 10 subflows")
 #axPlot.grid(True)
 axPlot.legend(loc='lower right')
 axPlot.set_xlabel("Rank of Flow")
