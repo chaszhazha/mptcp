@@ -52,7 +52,7 @@ axHist = fig.add_subplot(111)
 pings = defaultdict(list)
 
 for f in args.files:
-  #print f
+  print f
   if not f.find('ping'):
       print 'no ping file found'
       continue
