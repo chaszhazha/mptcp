@@ -111,7 +111,7 @@ do
        # plot queue size
        if [ -n "$qmon" ]
        then
-         for f in {1..8}
+         for f in {1..10}
          do
              python plot_queue.py -k $k -w $workload -f results/ft$k/$workload/flows$f/queue_size* -o plots/ft$k-$workload-flows$f-queue_size.png
          done
