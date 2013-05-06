@@ -55,7 +55,7 @@ then
 fi
 if [ "$2" = "all" ]
 then
-  wl_to_run=('one_to_one' 'one_to_several' 'all_to_all')
+  wl_to_run=('one_to_one' 'one_to_several' 'sparse')
 fi
 
 #get qmon
@@ -90,7 +90,7 @@ mkdir -p plots
 # ----- Run Mininet tests ------
 for k in ${topo_to_run[*]} #4 6 8 10 12
 do
-  for workload in ${wl_to_run[*]} #one_to_one one_to_several all_to_all
+  for workload in ${wl_to_run[*]} #one_to_one one_to_several sparse
   do
       # run experiment
       python mptcp_test.py \

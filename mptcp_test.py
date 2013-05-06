@@ -23,7 +23,7 @@ import os
 
 from mptcp_util import enable_mptcp, reset
 from dctopo import FatTreeTopo
-from workloads import OneToOneWorkload, OneToSeveralWorkload, AllToAllWorkload, progress
+from workloads import OneToOneWorkload, OneToSeveralWorkload, AllToAllWorkload, SparseWorkload, progress
 
 def cprint(s, color, cr=True):
     """Print in color
@@ -116,8 +116,10 @@ def get_workload(net):
         return OneToOneWorkload(net, args.iperf, args.time)
     elif args.workload == "one_to_several":
         return OneToSeveralWorkload(net, args.iperf, args.time)
-    else:
+    elif args.workload == "all_to_all":
         return AllToAllWorkload(net, args.iperf, args.time)
+    else:
+        return SparseWorkload(net, args.iperf, args.time)
 
 def main():
     top_dir = os.path.join(args.dir, args.topo, args.workload)

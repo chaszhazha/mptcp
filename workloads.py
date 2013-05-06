@@ -104,13 +104,14 @@ class OneToOneWorkload(Workload):
 
 
 class OneToSeveralWorkload(Workload):
-    def __init__(self, net, iperf, seconds, num_conn=4):
+    def __init__(self, net, iperf, seconds):
         Workload.__init__(self, net, iperf, seconds)
-        self.create_mappings(net.hosts, num_conn)
+        self.create_mappings(net.hosts)
 
-    def create_mappings(self, group, num_conn):
+    def create_mappings(self, group):
         for server in group:
             clients = list(group)
+            num_conn = int(len(clients) * 0.3)
             clients.remove(server)
             shuffle(clients)
             for client in clients[:num_conn]:
@@ -127,6 +128,21 @@ class AllToAllWorkload(Workload):
                 if client != server:
                     self.mappings.append((server, client))
 
+class SparseWorkload(Workload):
+    def __init__(self, net, iperf, seconds):
+        Workload.__init__(self, net, iperf, seconds)
+        self.create_mappings(net.hosts)
+
+    def create_mappings(self, group):
+        hosts = list(group)
+        shuffle(hosts)
+        for client in hosts[:int(len(hosts) * 0.3)]:
+            servers = list(group)
+            shuffle(servers)
+            for server in servers:
+                if server!=client:
+                    self.mappings.append((server, client))
+                    break
 
 def get_txbytes(iface):
     f = open('/proc/net/dev', 'r')
