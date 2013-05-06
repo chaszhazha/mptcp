@@ -104,14 +104,13 @@ class OneToOneWorkload(Workload):
 
 
 class OneToSeveralWorkload(Workload):
-    def __init__(self, net, iperf, seconds):
+    def __init__(self, net, iperf, seconds, num_conn = 4):
         Workload.__init__(self, net, iperf, seconds)
-        self.create_mappings(net.hosts)
+        self.create_mappings(net.hosts, num_conn)
 
-    def create_mappings(self, group):
+    def create_mappings(self, group, num_conn):
         for server in group:
             clients = list(group)
-            num_conn = int(len(clients) * 0.3)
             clients.remove(server)
             shuffle(clients)
             for client in clients[:num_conn]:
